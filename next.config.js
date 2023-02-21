@@ -10,9 +10,6 @@ const nextConfig = {
     });
     return config;
   },
-  webpackDevMiddleware: (config) => {
-    return config;
-  },
 }
 
 module.exports = nextConfig

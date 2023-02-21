@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const { data, loading, error } = useQuery(QUERY_COUNTRIES);
-  
+  console.log("data:", data)
   return (
     <>
       <Head>
@@ -20,7 +20,8 @@ export default function Home() {
       <h1 className="text-3xl font-bold underline">
         Hello world!
       </h1>
-      {data.countries.map((country:any) => (
+      {loading && <p>loading...</p>}
+      {!loading && data.countries.map((country:any) => (
           <div key={country.code}>{country.name}</div>
         ))}
       </main>
