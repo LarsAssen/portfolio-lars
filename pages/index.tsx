@@ -1,9 +1,13 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
+import { useQuery } from '@apollo/client';
+import QUERY_COUNTRIES from '../src/graphql/CountriesQuery.graphql';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { data, loading, error } = useQuery(QUERY_COUNTRIES);
+  
   return (
     <>
       <Head>
@@ -16,6 +20,9 @@ export default function Home() {
       <h1 className="text-3xl font-bold underline">
         Hello world!
       </h1>
+      {data.countries.map((country:any) => (
+          <div key={country.code}>{country.name}</div>
+        ))}
       </main>
     </>
   )
