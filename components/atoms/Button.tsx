@@ -1,9 +1,10 @@
-import ButtonType from '@/Models/ButtonType'
+import ButtonModel from '@/Models/ButtonModel'
+import Link from 'next/link'
 import React from 'react'
 
-const Button:React.FC<{type: ButtonType, text: string, link: string }> = ({type, text, link}) => {
+const Button:React.FC<{model: ButtonModel}> = ({model}) => {
   return (
-    <div>{text}</div>
+    <Link href={model.link}><div className={model.style}>{model.text}</div></Link>
   )
 }
 

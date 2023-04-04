@@ -1,0 +1,4 @@
+enum ComponentType  {
+    Primary,
+    Secondary
+}

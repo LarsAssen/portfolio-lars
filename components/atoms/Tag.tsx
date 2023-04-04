@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Tag = () => {
+const Tag:React.FC<{text: string}> = ({text}) => {
   return (
-    <div>Tag</div>
+    <div>{text}</div>
   )
 }
 
