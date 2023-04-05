@@ -1,5 +1,6 @@
+import { ComponentType } from "@/Enums/componentType"
+
 interface ButtonModel{
-    style: string,
     link: string,
     type: ComponentType,
     text: string
