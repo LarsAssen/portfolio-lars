@@ -4,6 +4,7 @@ import Button from '@/components/atoms/Button'
 import { ComponentType } from "@/Enums/componentType"
 import Title from '@/components/atoms/Title'
 import Tag from '@/components/atoms/Tag'
+import Category from '@/components/atoms/Category'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,6 +29,8 @@ export default function Home() {
       <Tag text="Primary Tag" />
       <Tag text="Secondary Tag" variant="secondary" />
       <Tag text="Tag with Icon" />
+      <Category text='Test' />
+      <Category text='Test 2' variant='secondary'/>
       </main>
     </>
   )
