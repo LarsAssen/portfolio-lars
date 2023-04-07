@@ -1,9 +1,24 @@
-import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react';
+import { faTag } from '@fortawesome/free-solid-svg-icons';
 
-const Tag:React.FC<{text: string}> = ({text}) => {
+
+type TagProps = {
+  text: string;
+  variant?: 'primary' | 'secondary';
+};
+
+const Tag: React.FC<TagProps> = ({ text, variant = 'primary' }) => {
+  const bgColor = variant === 'primary' ? 'bg-primary' : 'bg-secondary';
+
   return (
-    <div>{text}</div>
-  )
-}
+    <div
+      className={`inline-flex items-center px-3 py-1 rounded-full ${bgColor} text-white`}
+    >
+      <FontAwesomeIcon icon={faTag} />
+      <span>{text}</span>
+    </div>
+  );
+};
 
-export default Tag
+export default Tag;

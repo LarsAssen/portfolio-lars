@@ -2,6 +2,8 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Button from '@/components/atoms/Button'
 import { ComponentType } from "@/Enums/componentType"
+import Title from '@/components/atoms/Title'
+import Tag from '@/components/atoms/Tag'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +22,12 @@ export default function Home() {
       </h1>
       <Button model={{text:"test 1", link:"/", type: ComponentType.Primary }} />
       <Button model={{text:"test 2", link:"/", type: ComponentType.Secondary }} />
+      <Title text="Hello World" size="small" />
+      <Title text="Hello World" />
+      <Title text="Hello World" size="large" />
+      <Tag text="Primary Tag" />
+      <Tag text="Secondary Tag" variant="secondary" />
+      <Tag text="Tag with Icon" />
       </main>
     </>
   )
