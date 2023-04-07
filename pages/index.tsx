@@ -5,6 +5,7 @@ import { ComponentType } from "@/Enums/componentType"
 import Title from '@/components/atoms/Title'
 import Tag from '@/components/atoms/Tag'
 import Category from '@/components/atoms/Category'
+import Card from '@/components/molecules/card/Card'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,6 +32,8 @@ export default function Home() {
       <Tag text="Tag with Icon" />
       <Category text='Test' />
       <Category text='Test 2' variant='secondary'/>
+      <Card variant='imaged' title='testing' category='bruh' tags={["test", "testing"]} />
+      <Card variant='default' title='testing' category='bruh' tags={["test", "testing"]} />
       </main>
     </>
   )
