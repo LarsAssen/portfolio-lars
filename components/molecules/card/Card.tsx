@@ -1,6 +1,7 @@
 import Category from '@/components/atoms/Category';
 import Tag from '@/components/atoms/Tag';
 import Title from '@/components/atoms/Title';
+import Image from 'next/image';
 import React from 'react';
 
 type CardProps = {
@@ -8,6 +9,7 @@ type CardProps = {
   title: string;
   category: string;
   tags: string[];
+  imageUrl?: string
 };
 
 const Card: React.FC<CardProps> = ({ variant, title, category, tags }) => {
@@ -19,10 +21,11 @@ const Card: React.FC<CardProps> = ({ variant, title, category, tags }) => {
     >
       {isImaged && (
         <div className="mb-4">
-          <img
+          <Image
             src="https://via.placeholder.com/640x360.png?text=Card+Image"
-            alt=""
+            alt="adad"
             className="w-full h-40 object-cover rounded-md"
+            fill={true}
           />
         </div>
       )}
