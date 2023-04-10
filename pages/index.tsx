@@ -1,13 +1,15 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
-import { useQuery } from '@apollo/client';
-import QUERY_COUNTRIES from '../src/graphql/CountriesQuery.graphql';
+import Button from '@/components/atoms/Button'
+import { ComponentType } from "@/Enums/componentType"
+import Title from '@/components/atoms/Title'
+import Tag from '@/components/atoms/Tag'
+import Category from '@/components/atoms/Category'
+import Card from '@/components/molecules/card/Card'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const { data, loading, error } = useQuery(QUERY_COUNTRIES);
-  console.log("data:", data)
   return (
     <>
       <Head>
@@ -20,10 +22,18 @@ export default function Home() {
       <h1 className="text-3xl font-bold underline">
         Hello world!
       </h1>
-      {loading && <p>loading...</p>}
-      {!loading && data.countries.map((country:any) => (
-          <div key={country.code}>{country.name}</div>
-        ))}
+      <Button model={{text:"test 1", link:"/", type: ComponentType.Primary }} />
+      <Button model={{text:"test 2", link:"/", type: ComponentType.Secondary }} />
+      <Title text="Hello World" size="small" />
+      <Title text="Hello World" />
+      <Title text="Hello World" size="large" />
+      <Tag text="Primary Tag" />
+      <Tag text="Secondary Tag" variant="secondary" />
+      <Tag text="Tag with Icon" />
+      <Category text='Test' />
+      <Category text='Test 2' variant='secondary'/>
+      <Card variant='imaged' title='testing' category='bruh' tags={["test", "testing"]} />
+      <Card variant='default' title='testing' category='bruh' tags={["test", "testing"]} />
       </main>
     </>
   )
