@@ -6,6 +6,7 @@ import Title from '@/components/atoms/Title'
 import Tag from '@/components/atoms/Tag'
 import Category from '@/components/atoms/Category'
 import Card from '@/components/molecules/card/Card'
+import Navbar from '@/components/molecules/navigation/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+      <Navbar />
       <h1 className="text-3xl font-bold underline">
         Hello world!
       </h1>
@@ -32,7 +34,6 @@ export default function Home() {
       <Tag text="Tag with Icon" />
       <Category text='Test' />
       <Category text='Test 2' variant='secondary'/>
-      <Card variant='imaged' title='testing' category='bruh' tags={["test", "testing"]} />
       <Card variant='default' title='testing' category='bruh' tags={["test", "testing"]} />
       </main>
     </>
