@@ -14,6 +14,7 @@ module.exports = {
         primary: '#E3A03C',
         secondary: '#9747FF',
         cardBg: '#374C62',
+        navBg: '#112A44'
       },
     },
   },
