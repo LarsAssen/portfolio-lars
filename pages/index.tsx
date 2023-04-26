@@ -1,17 +1,37 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
-import Button from '@/components/atoms/Button'
-import { ComponentType } from "@/Enums/componentType"
-import Title from '@/components/atoms/Title'
-import Tag from '@/components/atoms/Tag'
-import Category from '@/components/atoms/Category'
-import Card from '@/components/molecules/card/Card'
-import Navbar from '@/components/molecules/navigation/Navbar'
 import Hero from '@/components/molecules/hero/Hero'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { HttpLink } from '@apollo/client/link/http';
 
-const inter = Inter({ subsets: ['latin'] })
+const link = new HttpLink({
+  uri: process.env.STRAPI_GRAPHQL_API,
+});
 
-export default function Home() {
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link,
+});
+
+const QUERY_POSTS = gql`
+query {
+  portfolioItems{
+    data{
+      attributes{
+        Title
+      }
+    }
+  }
+}
+`;
+
+
+
+
+
+const face = "https://images.unsplash.com/photo-1606646677098-46b8141f4da5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+const image = 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+
+export default function Home({posts} :any) {
   return (
     <>
       <Head>
@@ -21,8 +41,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Hero />
+        <Hero title='Hi there' backgroundImageUrl={image} imageUrl={face} text='Whats happening' buttonText='follow me' onClick={() => {}} />
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: QUERY_POSTS,
+  });
+
+  return {
+    props: {
+      posts: data.posts || null,
+    },
+  };
 }
