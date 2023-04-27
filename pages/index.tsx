@@ -42,6 +42,13 @@ export default function Home({posts} :any) {
       </Head>
       <main>
         <Hero title='Hi there' backgroundImageUrl={image} imageUrl={face} text='Whats happening' buttonText='follow me' onClick={() => {}} />
+        <ul>
+          {posts?.map((post: any) => (  
+            <li key={post.id}>
+              <h2>{post.attributes.Title}</h2>
+            </li>
+          ))}
+        </ul>
       </main>
     </>
   )
