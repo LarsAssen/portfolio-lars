@@ -1,37 +1,12 @@
 import Head from 'next/head'
 import Hero from '@/components/molecules/hero/Hero'
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import { HttpLink } from '@apollo/client/link/http';
-
-const link = new HttpLink({
-  uri: process.env.STRAPI_GRAPHQL_API,
-});
-
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link,
-});
-
-const QUERY_POSTS = gql`
-query {
-  portfolioItems{
-    data{
-      attributes{
-        Title
-      }
-    }
-  }
-}
-`;
-
-
-
-
+import { getPosts } from '@/services/PostService'
 
 const face = "https://images.unsplash.com/photo-1606646677098-46b8141f4da5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
 const image = 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
 
 export default function Home({posts} :any) {
+  console.log(posts)
   return (
     <>
       <Head>
@@ -43,10 +18,8 @@ export default function Home({posts} :any) {
       <main>
         <Hero title='Hi there' backgroundImageUrl={image} imageUrl={face} text='Whats happening' buttonText='follow me' onClick={() => {}} />
         <ul>
-          {posts?.map((post: any) => (  
-            <li key={post.id}>
-              <h2>{post.attributes.Title}</h2>
-            </li>
+          {posts?.data.map((post: any) => (
+            <li key={post.id}>{post.attributes.Title}</li>
           ))}
         </ul>
       </main>
@@ -55,13 +28,11 @@ export default function Home({posts} :any) {
 }
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: QUERY_POSTS,
-  });
+  const posts = await getPosts();
 
   return {
     props: {
-      posts: data.posts || null,
+      posts: posts || null,
     },
   };
 }
