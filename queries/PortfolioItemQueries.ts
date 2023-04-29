@@ -1,15 +1,14 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_FULL_POSTS = gql`
-query
-{
-  posts{
+export const QUERY_FULL_PORTFOLIOITEMS = gql`
+query {
+  portfolioItems{
     data{
       id
       attributes{
         Title
-        Content
         Description
+        Content
         Slug
         publishedAt
       }

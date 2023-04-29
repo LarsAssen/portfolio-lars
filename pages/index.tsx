@@ -6,7 +6,6 @@ const face = "https://images.unsplash.com/photo-1606646677098-46b8141f4da5?ixlib
 const image = 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
 
 export default function Home({posts} :any) {
-  console.log(posts)
   return (
     <>
       <Head>
@@ -18,9 +17,9 @@ export default function Home({posts} :any) {
       <main>
         <Hero title='Hi there' backgroundImageUrl={image} imageUrl={face} text='Whats happening' buttonText='follow me' onClick={() => {}} />
         <ul>
-          {posts?.data.map((post: any) => (
+          {/* {posts?.data.map((post: any) => (
             <li key={post.id}>{post.attributes.Title}</li>
-          ))}
+          ))} */}
         </ul>
       </main>
     </>
@@ -29,10 +28,9 @@ export default function Home({posts} :any) {
 
 export async function getStaticProps() {
   const posts = await getPosts();
-
   return {
     props: {
-      posts: posts || null,
+      posts: null,
     },
   };
 }
