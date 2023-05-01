@@ -12,7 +12,6 @@ const link = new HttpLink({
   });
 
 const mapPost = (postData: any) => {
-  console.log(postData)
   const post = {
     id: postData.id,
     title: postData.attributes.Title,
@@ -39,8 +38,7 @@ export const getPosts = async () => {
     const { data } = await client.query({
         query: QUERY_FULL_POSTS,
       });
-      //console.log(data.posts.data);
+
       const posts = mapPosts(data.posts.data);
-      console.log(posts)
       return posts;
 };
