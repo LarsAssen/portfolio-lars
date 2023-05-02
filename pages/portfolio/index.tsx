@@ -1,22 +1,27 @@
+import PortfolioItem from '@/Models/PortfolioItemModel';
 import Title from '@/components/atoms/Title'
+import { getPortfolioItems } from '@/services/PortfolioItemService';
 import React from 'react'
 
-const index:React.FC = () => {
+const index:React.FC<{portfolioItems: PortfolioItem[]}> = ({portfolioItems}) => {
   return (
     <div>
       <Title text='Portfolio' />
-
+      <ul>
+        {portfolioItems.map((portfolioItem: PortfolioItem) => (
+          <li key={portfolioItem.id}>{portfolioItem.title}</li>
+        ))}
+      </ul>
     </div>
   )
 }
-//// TODO - add portfolio items functionality
-// export async function getStaticProps() {
-//   const posts = await getPortfolioItems();
-//   return {
-//     props: {
-//       posts: posts,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const portfolioItems = await getPortfolioItems();
+  return {
+    props: {
+      portfolioItems: portfolioItems,
+    },
+  };
+}
 
 export default index

@@ -2,11 +2,11 @@ interface PortfolioItem{
     id: number,
     title: string,
     description: string,
-    headerImage: string,
+    headerImage: string | null,
     content: string,
-    tags: string[],
+    tags: string[] | null,
     date: string,
-    category: string,
+    category: string | null,
     slug: string
 }
 
