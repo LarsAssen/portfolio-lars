@@ -7,11 +7,6 @@ const index:React.FC<{portfolioItems: PortfolioItem[]}> = ({portfolioItems}) => 
   return (
     <div>
       <Title text='Portfolio' />
-      <ul>
-        {portfolioItems.map((portfolioItem: PortfolioItem) => (
-          <li key={portfolioItem.id}>{portfolioItem.title}</li>
-        ))}
-      </ul>
     </div>
   )
 }
