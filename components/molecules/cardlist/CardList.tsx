@@ -6,7 +6,7 @@ import PortfolioItem from '@/Models/PortfolioItemModel'
 
 const CardList:React.FC<{items: Post[] | PortfolioItem[], type: CardType}> = ({items, type}) => {
   return(
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid my-10 grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
          <Card key={item.id} title={item.title} description={item.description} cardType={type} category={item.category} tags={item.tags}  />
       ))}

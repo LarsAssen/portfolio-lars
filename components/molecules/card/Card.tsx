@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({ cardType, title, description, category, tag
 
   return (
     <div
-      className="border w-1/3 border-primary rounded p-4 bg-cardBg"
+      className="border border-primary rounded p-4 bg-cardBg"
     >
         {/* <div className="mb-4">
           <Image
@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({ cardType, title, description, category, tag
           />
         </div> */}
       <Title size='small' text={title} />
-      <p className="text-sm text-gray-500">{description}</p>
+      <p className="text-sm text-gray-200">{description}</p>
       {/* <Category text={category}/>
       <div className="flex flex-wrap">
         {tags.map((tag) => (

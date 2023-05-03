@@ -7,8 +7,8 @@ import React from 'react'
 
 const index:React.FC<{portfolioItems: PortfolioItem[]}> = ({portfolioItems}) => {
   return (
-    <div>
-      <Title text='Portfolio' />
+    <div className='mx-10'>
+      <Title size='large' text='Portfolio' />
       <CardList items={portfolioItems} type={CardType.PortfolioItem} />
     </div>
   )
