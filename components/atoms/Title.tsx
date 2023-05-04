@@ -9,7 +9,7 @@ const Title: React.FC<TitleProps> = ({ text, size = "medium" }) => {
   let fontSize;
   switch (size) {
     case "small":
-      fontSize = "text-3xl";
+      fontSize = "text-2xl";
       break;
     case "large":
       fontSize = "text-6xl";

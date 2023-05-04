@@ -1,3 +1,6 @@
+import { ComponentType } from '@/Enums/componentType';
+import Button from '@/components/atoms/Button';
+import Image from 'next/image';
 import React from 'react';
 
 type Props = {
@@ -19,20 +22,16 @@ const Hero: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="relative flex flex-row items-center justify-between bg-cover bg-center bg-opacity-50"
+      className="relative flex flex-row items-center justify-between bg-cover bg-center bg-opacity-10"
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
     >
       <div className="flex flex-col justify-center max-w-md p-4">
-        <h1 className="text-4xl font-bold mb-4">{title}</h1>
-        <p className="text-lg mb-4">{text}</p>
-        {/* <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={onClick}
-        >
-          {buttonText}
-        </button> */}
+        <h3 className='text-primary'>Hi Im</h3>
+        <h1 className="text-4xl text-primary font-bold mb-4">{title}</h1>
+        <p className="text-lg mb-4 text-white">{text}</p>
+        <Button model={{link: "/", type: ComponentType.Secondary, text: "Portfolio"}} />
       </div>
-      <img src={imageUrl} alt="Hero" className="w-1/2" />
+      <Image src={imageUrl} alt="Hero" width={300} height={300} />
     </div>
   );
 };
