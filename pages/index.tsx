@@ -2,11 +2,16 @@ import Head from 'next/head'
 import Hero from '@/components/molecules/hero/Hero'
 import { getPosts } from '@/services/PostService'
 import Post from '@/Models/PostModel'
+import { getPortfolioItems } from '@/services/PortfolioItemService'
+import PortfolioItem from '@/Models/PortfolioItemModel'
+import Title from '@/components/atoms/Title'
+import CardList from '@/components/molecules/cardlist/CardList'
+import { CardType } from '@/Enums/cardType'
 
 const personalImage = "/lars.png"
 const bgimage = 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
 
-export default function Home({posts} :any) {
+const Home:React.FC<{posts: Post[], portfolioItems: PortfolioItem[]}> = ({posts, portfolioItems}) => {
   return (
     <>
       <Head>
@@ -17,11 +22,10 @@ export default function Home({posts} :any) {
       </Head>
       <main>
         <Hero title='Lars Assen' backgroundImageUrl={bgimage} imageUrl={personalImage} text='And I design and build stuff for the web' buttonText='follow me' onClick={() => {}} />
-        <ul>
-          {posts.map((post: Post) => (
-            <li key={post.id}>{post.title}</li>
-          ))}
-        </ul>
+        <Title text='Latest blog posts' />
+        <CardList items={posts} type={CardType.Post} />
+        <Title text='Latest Portfolio items' />
+        <CardList items={portfolioItems} type={CardType.PortfolioItem} />
       </main>
     </>
   )
@@ -29,9 +33,13 @@ export default function Home({posts} :any) {
 
 export async function getStaticProps() {
   const posts = await getPosts();
+  const portfolioItems = await getPortfolioItems();
   return {
     props: {
       posts: posts,
+      portfolioItems: portfolioItems
     },
   };
 }
+
+export default Home
