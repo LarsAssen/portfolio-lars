@@ -2,11 +2,11 @@ interface Post {
     id: number,
     title: string,
     description: string,
-    headerImage: string | null,
+    headerImage: string,
     content: string,
-    tags: string[] | null,
-    date: string | null,
-    category: string | null,
+    tags: string[],
+    date: string,
+    category: string,
     slug: string
 }
 

@@ -9,33 +9,33 @@ type CardProps = {
   cardType: CardType;
   title: string;
   description: string;
-  category: string | null;
-  tags: string[] | null;
-  imageUrl?: string
+  category: string;
+  tags: string[];
+  imageUrl: string
 };
 
-const Card: React.FC<CardProps> = ({ cardType, title, description, category, tags }) => {
+const Card: React.FC<CardProps> = ({ cardType, title, description, category, tags, imageUrl }) => {
 
   return (
     <div
       className="border border-primary rounded p-4 bg-cardBg"
     >
-        {/* <div className="mb-4">
+        <div className="mb-4">
           <Image
-            src="https://via.placeholder.com/640x360.png?text=Card+Image"
+            src={imageUrl}
             alt="adad"
             className="w-full h-40 object-cover rounded-md"
             fill={true}
           />
-        </div> */}
+        </div>
       <Title size='small' text={title} />
       <p className="text-sm text-gray-200">{description}</p>
-      {/* <Category text={category}/>
+      <Category text={category}/>
       <div className="flex flex-wrap">
         {tags.map((tag) => (
           <Tag key={tag} text={tag} />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };

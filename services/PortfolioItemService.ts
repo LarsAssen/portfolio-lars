@@ -19,10 +19,10 @@ const mapPortfolioItem = (portfolioItemData: any) => {
     content: portfolioItemData.attributes.Content,
     description: portfolioItemData.attributes.Description,
     slug: portfolioItemData.attributes.Slug,
-    headerImage: null,
-    tags: null,
+    headerImage: portfolioItemData.attributes.HeaderImage.data.attributes.url,
+    tags: portfolioItemData.attributes.tags.data.map((tagData: any) => { return tagData.attributes.Title; }),
     date: portfolioItemData.attributes.publishedAt,
-    category: null
+    category: portfolioItemData.attributes.category.data.attributes.Title,
   } as PortfolioItem;
   return portfolioItem;
 }

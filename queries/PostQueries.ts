@@ -12,6 +12,34 @@ query
         Description
         Slug
         publishedAt
+        tags{
+          data{
+            attributes
+            {
+              Title
+            }
+          }
+        }
+        category
+        {
+          data
+          {
+            attributes
+            {
+              Title
+            }
+          }
+        }
+        HeaderImage
+        {
+          data
+          {
+            attributes
+            {
+              url
+            }
+          }
+        }
       }
     }
   }

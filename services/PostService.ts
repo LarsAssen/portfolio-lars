@@ -19,10 +19,10 @@ const mapPost = (postData: any) => {
     description: postData.attributes.Description,
     slug: postData.attributes.Slug,
     publishedAt: postData.attributes.publishedAt,
-    headerImage: null,
-    tags: null,
-    date: null,
-    category: null
+    headerImage: postData.attributes.HeaderImage.data.attributes.url,
+    tags: postData.attributes.tags.data.map((tagData: any) => { return tagData.attributes.Title; }),
+    date: postData.attributes.publishedAt,
+    category: postData.attributes.category.data.attributes.Title,
   } as Post;
   return post;
 };
