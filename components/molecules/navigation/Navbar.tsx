@@ -1,11 +1,25 @@
-import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 function Nav() {
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentPosition = window.pageYOffset;
+      setScrollPosition(currentPosition);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+
   const [isOpen, setIsOpen] = useState(false);
   return (
-<nav className="bg-navBg border-navBg dark:bg-gray-900">
+<nav className={`w-full fixed transition-all duration-500 dark:bg-gray-900 z-50 ${
+        scrollPosition > 100 ? "bg-navBg opacity-100" : "bg-transparent opacity-90"
+}`}>
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="https://flowbite.com/" className="flex items-center">
         <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo" />

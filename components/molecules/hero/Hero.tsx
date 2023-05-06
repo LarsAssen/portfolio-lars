@@ -22,7 +22,7 @@ const Hero: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="relative flex flex-row items-center justify-between bg-cover bg-center bg-opacity-10"
+      className="relative flex flex-row items-center h-screen justify-between bg-cover bg-center bg-opacity-10"
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
     >
       <div className="flex flex-col justify-center max-w-md p-4">
