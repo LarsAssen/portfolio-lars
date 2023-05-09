@@ -11,15 +11,8 @@ const nextConfig = {
     return config;
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
+    domains: ['localhost'],
+  }, 
 }
 
 module.exports = nextConfig

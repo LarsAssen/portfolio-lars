@@ -21,12 +21,12 @@ const Card: React.FC<CardProps> = ({ cardType, title, description, category, tag
       className="border border-primary rounded p-4 bg-cardBg"
     >
         <div className="mb-4">
-          <Image
-            src={imageUrl}
+          {/* <img
+            src={`http://localhost:1337${imageUrl}`}
             alt="adad"
             className="w-full h-40 object-cover rounded-md"
             fill={true}
-          />
+          /> */}
         </div>
       <Title size='small' text={title} />
       <p className="text-sm text-gray-200">{description}</p>
