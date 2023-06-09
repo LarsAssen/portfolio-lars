@@ -21,7 +21,7 @@ const Title: React.FC<TitleProps> = ({ text, size = "medium" }) => {
 
   return (
       <div className={`relative ${fontSize} text-white font-bold`}>{text}
-      <div className="h-1 w-20 bg-primary"></div>
+      <div className="w-20 h-0.5 bg-primary"></div>
       </div>
   );
 };

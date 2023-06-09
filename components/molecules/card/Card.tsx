@@ -28,9 +28,11 @@ const Card: React.FC<CardProps> = ({ cardType, title, description, category, tag
             fill={true}
           /> */}
         </div>
-      <Title size='small' text={title} />
+        <div className='flex my-3'>
+          <Title size='small' text={title} />
+          <Category text={category}/>
+        </div>
       <p className="text-sm text-gray-200">{description}</p>
-      <Category text={category}/>
       <div className="flex flex-wrap">
         {tags.map((tag) => (
           <Tag key={tag} text={tag} />
