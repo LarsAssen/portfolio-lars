@@ -21,7 +21,7 @@ const Home:React.FC<{portfolioItems: PortfolioItem[]}> = ({portfolioItems}) => {
       <main>
         <Hero title='Lars Assen' backgroundImageUrl={bgimage} imageUrl={personalImage} text='And I design and build stuff for the web' buttonText='follow me' onClick={() => {}} />
         <Title text='Latest Portfolio items' />
-        <CardList items={portfolioItems} type={CardType.PortfolioItem} />
+        <CardList portfolioItems={portfolioItems}  />
       </main>
     </>
   )

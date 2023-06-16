@@ -1,12 +1,21 @@
+import PortfolioItem from "@/Models/PortfolioItemModel";
+import Title from "@/components/atoms/Title";
+import { getPortfolioItems } from "@/services/PortfolioItemService";
 import ReactMarkdown from "react-markdown";
+import Moment from "react-moment";
 
-const Post: React.FC<{portfolioItem: any}> = ({portfolioItem}) => {
+const portfolioItem: React.FC<{portfolioItem: PortfolioItem}> = ({portfolioItem}) => {
 
     //const imageUrl = post.attributes.Image.data.attributes.url
     return (
       <div className="container w-full px-4 md:px-6  md:max-w-3xl mx-auto pt-20">
-        <div className="pt-6">
-          <ReactMarkdown>{portfolioItem.attributes.Content}</ReactMarkdown>
+        <div className="w-full text-xl text-gray-800 leading-normal">
+        <Title size="large" text={portfolioItem.title} />
+        <span className="text-sm md:text-base font-normal text-gray-600">Published <Moment format="MMM Do YYYY">{portfolioItem.date}</Moment></span>
+        <img src="/lars.png" alt={"test"} />
+      </div>
+        <div className="pt-6 text-white">
+          <ReactMarkdown>{portfolioItem.content}</ReactMarkdown>
           <div>
             <p>By Lars Assen</p>
           </div>
@@ -16,13 +25,12 @@ const Post: React.FC<{portfolioItem: any}> = ({portfolioItem}) => {
 }
 
 export async function getStaticPaths() {
-  const postsData = await fetchAPI("/portfolioItems");
-  const posts = postsData.data;
+  const portfolioItems = await getPortfolioItems();
 
   return {
-    paths: posts.map((post:any) => ({
+    paths: portfolioItems.map((portfolioItem:PortfolioItem) => ({
       params: {
-        slug: post.attributes.Slug,
+        slug: portfolioItem.slug,
       },
     })),
     fallback: 'blocking',
@@ -30,18 +38,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }:any) {
-
-//   const portfolioItemData = await fetchAPI(
-//     `/por`,
-//   );
-//   const portfolioItems = portfolioItemData.data.filter((post:any) => post.attributes.Slug === params.slug);
-
-//   const categories = await fetchAPI("/categories");
+  const portfolioItems = await getPortfolioItems();
 
   return {
-    props: { portfolioItem: portfolioItems[0], categories },
+    props: { portfolioItem: portfolioItems[0]},
     revalidate: 10,
   };
 }
 
-export default Post;
+export default portfolioItem;
