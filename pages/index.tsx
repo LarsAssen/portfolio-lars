@@ -5,9 +5,36 @@ import PortfolioItem from '@/Models/PortfolioItemModel'
 import Title from '@/components/atoms/Title'
 import CardList from '@/components/molecules/cardlist/CardList'
 import { CardType } from '@/Enums/cardType'
+import Roadmap from '@/components/molecules/components/Roadmap'
 
 const personalImage = "/lars.png"
 const bgimage = 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+const experiences = [
+  {
+    title: 'Software Engineer',
+    company: 'ABC Inc.',
+    date: '2018 - Present'
+  },
+  {
+    title: 'Intern',
+    company: 'XYZ Corp.',
+    date: '2017 - 2018'
+  }
+];
+
+const educations = [
+  {
+    degree: 'Bachelor of Science',
+    institution: 'University of ABC',
+    date: '2013 - 2017'
+  },
+  {
+    degree: 'High School Diploma',
+    institution: 'XYZ High School',
+    date: '2009 - 2013'
+  }
+];
+
 
 const Home:React.FC<{portfolioItems: PortfolioItem[]}> = ({portfolioItems}) => {
   return (
@@ -22,6 +49,8 @@ const Home:React.FC<{portfolioItems: PortfolioItem[]}> = ({portfolioItems}) => {
         <Hero title='Lars Assen' backgroundImageUrl={bgimage} imageUrl={personalImage} text='And I design and build stuff for the web' buttonText='follow me' onClick={() => {}} />
         <Title text='Latest Portfolio items' />
         <CardList portfolioItems={portfolioItems}  />
+        <Roadmap experiences={experiences} educations={educations} />
+
       </main>
     </>
   )

@@ -1,24 +1,49 @@
-import React from "react";
+import Title from '@/components/atoms/Title';
+import React from 'react';
 
-// Define the props interface for the roadmap component
-interface RoadmapProps {
-  leftJob: string;
-  rightJob: string;
+interface Experience {
+  title: string;
+  company: string;
+  date: string;
 }
 
-// Define the roadmap component
-const Roadmap: React.FC<RoadmapProps> = ({ leftJob, rightJob }) => {
-    return (
-        <div className="flex justify-center items-center w-full h-screen bg-gray-100">
-          <div className="w-2 h-full bg-blue-500 absolute left-1/2"></div>
-          <div className="w-5/12 text-center border-2 text-gray-600 text-lg absolute left-0 ml-2 mt-20">
-            {leftJob}
-          </div>
-          <div className="w-5/12 text-center border-2 text-gray-600 text-lg absolute right-0 mr-2 mt-20">
-            {rightJob}
-          </div>
-        </div>
-      );
+interface Education {
+  degree: string;
+  institution: string;
+  date: string;
+}
+
+interface Props {
+  experiences: Experience[];
+  educations: Education[];
+}
+
+const Roadmap: React.FC<Props> = ({ experiences, educations }) => {
+  return (
+    <div id='roadmap' className="container w-full px-4 md:px-6  md:max-w-3xl mx-auto pt-20">
+      <Title text='Work Experience'/>
+      <ul className="mb-8">
+        {experiences.map((experience, index) => (
+          <li key={index} className="mb-2">
+            <h3 className="text-lg font-semibold">{experience.title}</h3>
+            <p className="text-gray-500">{experience.company}</p>
+            <p className="text-gray-500">{experience.date}</p>
+          </li>
+        ))}
+      </ul>
+
+      <Title text='Education' />
+      <ul>
+        {educations.map((education, index) => (
+          <li key={index} className="mb-2">
+            <h3 className="text-lg font-semibold">{education.degree}</h3>
+            <p className="text-gray-500">{education.institution}</p>
+            <p className="text-gray-500">{education.date}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Roadmap;

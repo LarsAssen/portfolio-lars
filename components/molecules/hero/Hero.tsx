@@ -24,6 +24,7 @@ const Hero: React.FC<Props> = ({
     <div
       className="h-screen justify-between bg-cover bg-center bg-opacity-10"
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+      id='hero'
     >
       <div className='mx-20 top-52 relative flex flex-row items-center '>
         <div className="flex flex-col justify-center max-w-md p-4">
