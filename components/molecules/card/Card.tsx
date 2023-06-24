@@ -3,13 +3,14 @@ import PortfolioItem from '@/Models/PortfolioItemModel';
 import Category from '@/components/atoms/Category';
 import Tag from '@/components/atoms/Tag';
 import Title from '@/components/atoms/Title';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 
-const Card: React.FC<{portfolioItem: PortfolioItem}> = ({ portfolioItem }) => {
+const Card: React.FC<{portfolioItem: PortfolioItem, controls:any, index:any}> = ({ portfolioItem, controls, index }) => {
 
   return (
-    <div className="overflow-hidden border border-primary rounded bg-cardBg">
+    <motion.div style={{ opacity: 0 }} custom={index} animate={controls} className="overflow-hidden border border-primary rounded bg-cardBg">
       <img className="w-full" src="/lars.png" alt="Mountain"></img>
       <div className="px-6 py-4">
           <div className='relative my-3'>
@@ -30,7 +31,7 @@ const Card: React.FC<{portfolioItem: PortfolioItem}> = ({ portfolioItem }) => {
           ))}
       </div>
       <Link href="/portfolioItem/[slug]" as={`/portfolioItem/${portfolioItem.slug}`}>Check it out</Link>
-    </div>
+    </motion.div>
   );
 };
 
