@@ -1,10 +1,8 @@
 import Head from 'next/head'
 import Hero from '@/components/molecules/hero/Hero'
-import { getPortfolioItems } from '@/services/PortfolioItemService'
 import PortfolioItem from '@/Models/PortfolioItemModel'
 import Title from '@/components/atoms/Title'
 import CardList from '@/components/molecules/cardlist/CardList'
-import { CardType } from '@/Enums/cardType'
 import Roadmap from '@/components/molecules/components/Roadmap'
 
 const personalImage = "/lars.png"
@@ -36,7 +34,9 @@ const educations = [
 ];
 
 
-const Home:React.FC<{portfolioItems: PortfolioItem[]}> = ({portfolioItems}) => {
+const Home:React.FC = () => {
+  const portfolioItems:PortfolioItem[] = []
+
   return (
     <>
       <Head>
@@ -54,15 +54,6 @@ const Home:React.FC<{portfolioItems: PortfolioItem[]}> = ({portfolioItems}) => {
       </main>
     </>
   )
-}
-
-export async function getStaticProps() {
-  const portfolioItems = await getPortfolioItems();
-  return {
-    props: {
-      portfolioItems: portfolioItems
-    },
-  };
 }
 
 export default Home

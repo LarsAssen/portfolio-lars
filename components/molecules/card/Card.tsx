@@ -1,4 +1,3 @@
-import { CardType } from '@/Enums/cardType';
 import PortfolioItem from '@/Models/PortfolioItemModel';
 import Category from '@/components/atoms/Category';
 import Tag from '@/components/atoms/Tag';

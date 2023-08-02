@@ -31,7 +31,7 @@ const CardList:React.FC<{portfolioItems : PortfolioItem[]}> = ({portfolioItems})
     if (isVisible) {
       controls.start((i) => ({
         opacity: 1,
-        transition: { delay: i * 0.2 }
+        transition: { delay: i * 0.3 }
       }));
     }
   }, [controls, isVisible]);

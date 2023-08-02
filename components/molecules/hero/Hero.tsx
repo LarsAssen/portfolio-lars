@@ -23,7 +23,6 @@ const Hero: React.FC<Props> = ({
   return (
     <div
       className="h-screen justify-between bg-cover bg-center bg-opacity-10"
-      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
       id='hero'
     >
       <div className='mx-20 top-52 relative flex flex-row items-center '>
@@ -33,9 +32,10 @@ const Hero: React.FC<Props> = ({
           <p className="text-lg mb-4 text-white">{text}</p>
           <Button model={{link: "/", type: ComponentType.Secondary, text: "Portfolio"}} />
         </div>
-        <div className='flex ml-auto flex-col justify-center'>
-          <Image src={imageUrl} alt="Hero" width={500} height={500} />
-        </div>
+        <div className='flex relative ml-auto flex-col justify-center'>
+        <div className="absolute top-4 left-4 w-full h-full border-solid border-4 border-primary"></div>
+          <Image className='z-10' src={imageUrl} alt="Hero" width={500} height={500} />
+          </div>
       </div>
     </div>
   );
