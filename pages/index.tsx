@@ -35,7 +35,25 @@ const educations = [
 
 
 const Home:React.FC = () => {
-  const portfolioItems:PortfolioItem[] = []
+  const portfolioItems:PortfolioItem[] = [{
+    title: 'Portfolio Item 1',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscin ',
+    headerImage: 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8f',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
+    date: "2021-04-01",
+    category: "web",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nis",
+  },
+  {
+    title: 'Portfolio Item 2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscin ',
+    headerImage: 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8f',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
+    date: "2021-04-01",
+    category: "web",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nis",
+  },
+    ]
 
   return (
     <>

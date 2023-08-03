@@ -6,11 +6,10 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 
-const Card: React.FC<{portfolioItem: PortfolioItem, controls:any, index:any}> = ({ portfolioItem, controls, index }) => {
+const Card: React.FC<{portfolioItem: PortfolioItem, index:any}> = ({ portfolioItem, index }) => {
 
   return (
-    <motion.div style={{ opacity: 0 }} custom={index} animate={controls} className="overflow-hidden border border-primary rounded bg-cardBg">
-      <img className="w-full" src="/lars.png" alt="Mountain"></img>
+    <div className="bg-cardBg mx-10 my-2 border-l-8 border-primary">
       <div className="px-6 py-4">
           <div className='relative my-3'>
             <div className='absolute left-0'>
@@ -29,8 +28,7 @@ const Card: React.FC<{portfolioItem: PortfolioItem, controls:any, index:any}> = 
             <Tag key={tag} text={tag} />
           ))}
       </div>
-      <Link href="/portfolioItem/[slug]" as={`/portfolioItem/${portfolioItem.slug}`}>Check it out</Link>
-    </motion.div>
+    </div>
   );
 };
 
