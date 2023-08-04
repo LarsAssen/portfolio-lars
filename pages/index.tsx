@@ -65,7 +65,6 @@ const Home:React.FC = () => {
       </Head>
       <main>
         <Hero title='Lars Assen' backgroundImageUrl={bgimage} imageUrl={personalImage} text='And I design and build stuff for the web' buttonText='follow me' onClick={() => {}} />
-        <Title text='Latest Portfolio items' />
         <CardList portfolioItems={portfolioItems}  />
         <Experience experiences={experiences} educations={educations} />
 

@@ -13,7 +13,7 @@ module.exports = {
       colors: {
         primary: '#E3A03C',
         secondary: '#9747FF',
-        cardBg: '#374C62',
+        cardBg: '#232B34',
         navBg: '#112A44'
       },
     },
