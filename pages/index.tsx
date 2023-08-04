@@ -4,6 +4,8 @@ import PortfolioItem from '@/Models/PortfolioItemModel'
 import Title from '@/components/atoms/Title'
 import CardList from '@/components/molecules/cardlist/CardList'
 import Experience from '@/components/molecules/components/Experience'
+import Skills from '@/components/molecules/components/skills/Skills'
+import SkillsList from '@/components/molecules/components/skills/SkillsList'
 
 const personalImage = "/lars.png"
 const bgimage = 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
@@ -66,6 +68,7 @@ const Home:React.FC = () => {
       <main>
         <Hero title='Lars Assen' backgroundImageUrl={bgimage} imageUrl={personalImage} text='And I design and build stuff for the web' buttonText='follow me' onClick={() => {}} />
         <CardList portfolioItems={portfolioItems}  />
+        <SkillsList />
         <Experience experiences={experiences} educations={educations} />
 
       </main>
