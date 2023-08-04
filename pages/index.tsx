@@ -6,6 +6,7 @@ import CardList from '@/components/molecules/cardlist/CardList'
 import Experience from '@/components/molecules/components/Experience'
 import Skills from '@/components/molecules/components/skills/Skills'
 import SkillsList from '@/components/molecules/components/skills/SkillsList'
+import About from './about'
 
 const personalImage = "/lars.png"
 const bgimage = 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
@@ -13,12 +14,14 @@ const experiences = [
   {
     title: 'Software Engineer',
     company: 'ABC Inc.',
-    date: '2018 - Present'
+    date: '2018 - Present',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
   },
   {
     title: 'Intern',
     company: 'XYZ Corp.',
-    date: '2017 - 2018'
+    date: '2017 - 2018',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
   }
 ];
 
@@ -26,12 +29,14 @@ const educations = [
   {
     degree: 'Bachelor of Science',
     institution: 'University of ABC',
-    date: '2013 - 2017'
+    date: '2013 - 2017',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
   },
   {
     degree: 'High School Diploma',
     institution: 'XYZ High School',
-    date: '2009 - 2013'
+    date: '2009 - 2013',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
   }
 ];
 
@@ -70,7 +75,7 @@ const Home:React.FC = () => {
         <CardList portfolioItems={portfolioItems}  />
         <SkillsList />
         <Experience experiences={experiences} educations={educations} />
-
+        <About />
       </main>
     </>
   )

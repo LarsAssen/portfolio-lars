@@ -1,3 +1,4 @@
+import Tag from '@/components/atoms/Tag';
 import Title from '@/components/atoms/Title';
 import React from 'react';
 
@@ -5,12 +6,14 @@ interface Experience {
   title: string;
   company: string;
   date: string;
+  tags: string[];
 }
 
 interface Education {
   degree: string;
   institution: string;
   date: string;
+  tags: string[];
 }
 
 interface Props {
@@ -20,26 +23,44 @@ interface Props {
 
 const Roadmap: React.FC<Props> = ({ experiences, educations }) => {
   return (
-    <div id='roadmap' className="container w-full px-4 md:px-6  md:max-w-3xl mx-auto pt-20">
+    <div id='roadmap' className="container w-full px-4 md:px-6 pt-20">
       <Title text='Work Experience'/>
       <ul className="mb-8">
         {experiences.map((experience, index) => (
-          <li key={index} className="mb-2">
-            <h3 className="text-lg font-semibold">{experience.title}</h3>
-            <p className="text-gray-500">{experience.company}</p>
-            <p className="text-gray-500">{experience.date}</p>
-          </li>
+          <div key={index} className="max-w-full my-4 mx-auto bg-cardBg border-l-8 border-primary overflow-hidden md:flex">
+          <div className="p-8 md:flex-1">
+            <p>{experience.date}</p>
+            <Title size='small' text={experience.title} />
+            <p className="text-white py-2 text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+            </p>
+            <div className="pt-4 pb-2">
+              {experience.tags.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </div>
+          </div>
+        </div>
         ))}
       </ul>
 
       <Title text='Education' />
       <ul>
         {educations.map((education, index) => (
-          <li key={index} className="mb-2">
-            <h3 className="text-lg font-semibold">{education.degree}</h3>
-            <p className="text-gray-500">{education.institution}</p>
-            <p className="text-gray-500">{education.date}</p>
-          </li>
+          <div key={index} className="max-w-full my-4 mx-auto bg-cardBg border-l-8 border-primary overflow-hidden md:flex">
+          <div className="p-8 md:flex-1">
+            <p>{education.date}</p>
+            <Title size='small' text={education.degree} />
+            <p className="text-white py-2 text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+            </p>
+            <div className="pt-4 pb-2">
+              {education.tags.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </div>
+          </div>
+        </div>
         ))}
       </ul>
     </div>
