@@ -22,9 +22,21 @@ const Hero: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="h-screen justify-between bg-cover bg-center bg-opacity-10"
+      className="h-screen relative  justify-between bg-cover bg-center bg-opacity-10"
       id='hero'
     >
+       
+       <div
+        className="absolute top-0 left-0 w-1/2 h-1/2 bg-primary opacity-20 transform rotate-45 origin-bottom-left"
+        style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+      ></div>
+
+      {/* Lower triangle */}
+      <div
+        className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-primary opacity-20 transform rotate-45 origin-top-right"
+        style={{ clipPath: 'polygon(100% 100%, 0 100%, 100% 0)' }}
+      ></div>
+
       <div className='mx-20 top-52 relative flex flex-row items-center '>
         <div className="flex flex-col justify-center max-w-md p-4">
           <h3 className='text-primary'>Hi Im</h3>

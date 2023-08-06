@@ -16,6 +16,32 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const [activeLink, setActiveLink] = useState('');
+
+  // Function to check which section is currently in view
+  const checkSectionInView = () => {
+    const anchorLinks = document.querySelectorAll('[data-section]');
+    anchorLinks.forEach((link) => {
+      const sectionId = link.getAttribute('data-section');
+      const section = document.getElementById(sectionId);
+      if (section.getBoundingClientRect().top  <= 0) {
+        setActiveLink(sectionId);
+      }
+    });
+  };
+
+  // Function to handle scrolling and update the active link
+  const handleScroll = () => {
+    checkSectionInView();
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
   const [isOpen, setIsOpen] = useState(false);
   return (

@@ -3,11 +3,12 @@ import { faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-sv
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer: React.FC = () => {
+  const logo = "../logo.png"
   return (
     <footer className="bg-gray-900 py-6">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         <div className="w-full sm:w-auto">
-          <img src="https://flowbite.com/docs/images/logo.svg" alt="Logo" className="h-8 w-auto" />
+        <img src={logo} className="h-20 ml-10 mr-3" alt="Logo" />
         </div>
         <div className="mt-4 sm:mt-0 flex space-x-4">
           <a
@@ -35,7 +36,7 @@ const Footer: React.FC = () => {
             <FontAwesomeIcon  color='white' size='2x' icon={faLinkedin} />
           </a>
         </div>
-        <div className="mt-4 sm:mt-0 flex space-x-4">
+        {/* <div className="mt-4 sm:mt-0 flex space-x-4">
           <a
             href="https://www.example1.com"
             target="_blank"
@@ -52,7 +53,7 @@ const Footer: React.FC = () => {
           >
             Example 2
           </a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
