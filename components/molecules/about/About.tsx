@@ -7,7 +7,7 @@ import Image from 'next/image'
 const About = () => {
     const personalImage = "/lars.png"
   return (
-    <div className='h-screen'>
+    <div className='h-screen' id='about' >
       <div className='mx-20 top-52 relative flex flex-row items-center '>
         <div>
         <Title text="About me" />
