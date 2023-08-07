@@ -65,10 +65,16 @@ function Nav() {
           <AnchorLink data-section="portfolioItems" className={`${activeLink === 'portfolioItems'? 'text-primary font-bold':'text-white font-normal'} block py-2 pl-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500`} href="#portfolioItems">Portfolio</AnchorLink>
         </li>
         <li>
-          <AnchorLink data-section="roadmap" href="#roadmap" className={`${activeLink === 'roadmap'? 'text-primary font-bold':'text-white font-normal'} block py-2 pl-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500`}>Experience</AnchorLink>
+          <AnchorLink href="#skills" data-section="skills" className={`${activeLink === 'skills'? 'text-primary font-bold':'text-white font-normal'} block py-2 pl-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500`}>Skills</AnchorLink>
+        </li>
+        <li>
+          <AnchorLink data-section="experience" href="#experience" className={`${activeLink === 'experience'? 'text-primary font-bold':'text-white font-normal'} block py-2 pl-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500`}>Experience</AnchorLink>
         </li>
         <li>
           <AnchorLink href="#about" data-section="about" className={`${activeLink === 'about'? 'text-primary font-bold':'text-white font-normal'} block py-2 pl-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500`}>About</AnchorLink>
+        </li>
+        <li>
+          <AnchorLink href="#contact" data-section="contact" className={`${activeLink === 'contact'? 'text-primary font-bold':'text-white font-normal'} block py-2 pl-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500`}>Contact</AnchorLink>
         </li>
       </ul>
     </div>

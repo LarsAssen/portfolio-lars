@@ -4,8 +4,8 @@ import { faReact } from '@fortawesome/free-brands-svg-icons';
 
 const Skills:React.FC<{}> = () => {
     return (
-      <div className="bg-cardBg w-80 h-80 overflow-hidden">
-        <div className="relative left-4 -top-3 rounded-full bg-cardBg border-[6px] border-bgColor p-2 w-16 h-16">
+      <div className="bg-cardBg relative w-80 h-80 overflow-hidden">
+        <div className="absolute left-4 z-10 -top-5 rounded-full bg-cardBg border-[6px] border-bgColor p-2 w-16 h-16">
         <FontAwesomeIcon icon={faReact} className="text-primary" />
         </div>
         <div className="px-6 py-4">

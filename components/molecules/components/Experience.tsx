@@ -23,14 +23,14 @@ interface Props {
 
 const Roadmap: React.FC<Props> = ({ experiences, educations }) => {
   return (
-    <div id='roadmap' className="mx-20 mt-20 pt-20">
-      <Title text='Work Experience'/>
+    <div id='experience' className="mx-20 mt-20 pt-20">
+      <Title number='3.  ' text='Work Experience'/>
       <ul className="mb-8">
         {experiences.map((experience, index) => (
           <div key={index} className="my-4 mx-auto bg-cardBg border-l-8 border-primary">
           <div className="p-8">
             <p>{experience.date}</p>
-            <Title size='small' text={experience.title} />
+            <Title number='' size='small' text={experience.title} />
             <p className="text-white py-2 text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>
@@ -44,13 +44,13 @@ const Roadmap: React.FC<Props> = ({ experiences, educations }) => {
         ))}
       </ul>
 
-      <Title text='Education' />
+      <Title number='4.  ' text='Education' />
       <ul>
         {educations.map((education, index) => (
           <div key={index} className="max-w-full my-4 mx-auto bg-cardBg border-l-8 border-primary overflow-hidden md:flex">
           <div className="p-8 md:flex-1">
             <p>{education.date}</p>
-            <Title size='small' text={education.degree} />
+            <Title number='' size='small' text={education.degree} />
             <p className="text-white py-2 text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>

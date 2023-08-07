@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import emailjs from 'emailjs-com';
+import Title from '@/components/atoms/Title';
 
 const Contact = () => {
     const [fullName, setFullName] = useState("");
@@ -36,7 +37,7 @@ const Contact = () => {
   };
   
   return (
-    <div className="bg-cardBg mx-20">
+    <div id='contact' className="bg-cardBg mx-20 mt-24">
       <h2 className="text-2xl text-white font-bold mb-4">Like what you see?</h2>
       <h2 className="text-2xl text-primary font-bold mb-4">Lets talk!</h2>
       <form onSubmit={handleFormSubmit}>
