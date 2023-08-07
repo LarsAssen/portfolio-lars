@@ -4,16 +4,16 @@ import Title from '@/components/atoms/Title'
 
 const SkillsList = () => {
   return (
-    <>
+    <div className='mx-20 my-32'>
     <Title text='Skills' />
-    <div className="mx-10 my-4 flex justify-between flex-wrap">
+    <div className="my-4 flex justify-between flex-wrap">
           <Skills />
           <Skills />
           <Skills />
           <Skills />
         </div>
     
-    </>
+    </div>
   )
 }
 

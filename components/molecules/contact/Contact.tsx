@@ -36,7 +36,7 @@ const Contact = () => {
   };
   
   return (
-    <div className="bg-cardBg">
+    <div className="bg-cardBg mx-20">
       <h2 className="text-2xl text-white font-bold mb-4">Like what you see?</h2>
       <h2 className="text-2xl text-primary font-bold mb-4">Lets talk!</h2>
       <form onSubmit={handleFormSubmit}>
