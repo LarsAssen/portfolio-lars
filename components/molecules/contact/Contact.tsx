@@ -1,78 +1,61 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import emailjs from 'emailjs-com';
 import Title from '@/components/atoms/Title';
 
 const Contact = () => {
-    const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
-  const handleFormSubmit = (e:any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Replace these with your EmailJS service configuration
-    const serviceId = "your_emailjs_service_id";
-    const templateId = "your_emailjs_template_id";
-    const userId = "your_emailjs_user_id";
-
-    const templateParams = {
-      fullName: fullName,
-      email: email,
-      message: message,
-    };
-
-    emailjs
-      .send(serviceId, templateId, templateParams, userId)
-      .then((response:any) => {
-        console.log("Email sent successfully!", response);
-      })
-      .catch((error:any) => {
-        console.error("Error sending email:", error);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-    // Clear form fields after submission
-    setFullName("");
-    setEmail("");
-    setMessage("");
+      if (response.ok) {
+        alert('Email sent successfully!');
+      } else {
+        alert('Failed to send email.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
   };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+    
   
   return (
     <div id='contact' className="bg-cardBg mx-20 mt-24">
       <h2 className="text-2xl text-white font-bold mb-4">Like what you see?</h2>
       <h2 className="text-2xl text-primary font-bold mb-4">Lets talk!</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="full-name">Full Name:</label>
-          <input
-            type="text"
-            id="full-name"
-            className="w-full border p-2"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            required
-          />
+          <input type="text" name="name" value={formData.name} onChange={handleChange} />
         </div>
         <div className="mb-4">
           <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            className="w-full border p-2"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <input type="email" name="email" value={formData.email} onChange={handleChange} />
         </div>
         <div className="mb-4">
           <label htmlFor="message">Message:</label>
-          <textarea
-            id="message"
-            className="w-full border p-2"
-            rows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          ></textarea>
+          <textarea name="message" value={formData.message} onChange={handleChange} />
         </div>
         <button
           type="submit"
