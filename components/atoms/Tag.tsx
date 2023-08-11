@@ -1,7 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react';
-import { faTag } from '@fortawesome/free-solid-svg-icons';
-
+import { FaTag } from 'react-icons/fa';
 
 type TagProps = {
   text: string;
@@ -13,9 +11,9 @@ const Tag: React.FC<TagProps> = ({ text, variant = 'primary' }) => {
 
   return (
     <div
-      className={`inline-flex font-bold items-center px-3 py-1 rounded-full ${bgColor} text-white`}
+      className={`inline-flex font-bold items-center mr-3 px-3 py-1 rounded-full ${bgColor} text-white`}
     >
-      <FontAwesomeIcon icon={faTag} />
+      <FaTag className='mr-2' />
       <span>{text}</span>
     </div>
   );

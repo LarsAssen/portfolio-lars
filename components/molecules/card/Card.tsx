@@ -1,41 +1,42 @@
-import { CardType } from '@/Enums/cardType';
+import { ComponentType } from '@/Enums/componentType';
+import PortfolioItem from '@/Models/PortfolioItemModel';
+import Button from '@/components/atoms/Button';
 import Category from '@/components/atoms/Category';
 import Tag from '@/components/atoms/Tag';
 import Title from '@/components/atoms/Title';
-import Image from 'next/image';
 import React from 'react';
 
-type CardProps = {
-  cardType: CardType;
-  title: string;
-  description: string;
-  category: string | null;
-  tags: string[] | null;
-  imageUrl?: string
-};
-
-const Card: React.FC<CardProps> = ({ cardType, title, description, category, tags }) => {
+const Card: React.FC<{portfolioItem: PortfolioItem, index:any}> = ({ portfolioItem, index }) => {
 
   return (
-    <div
-      className="border border-primary rounded p-4 bg-cardBg"
-    >
-        {/* <div className="mb-4">
-          <Image
-            src="https://via.placeholder.com/640x360.png?text=Card+Image"
-            alt="adad"
-            className="w-full h-40 object-cover rounded-md"
-            fill={true}
-          />
-        </div> */}
-      <Title size='small' text={title} />
-      <p className="text-sm text-gray-200">{description}</p>
-      {/* <Category text={category}/>
-      <div className="flex flex-wrap">
-        {tags.map((tag) => (
-          <Tag key={tag} text={tag} />
-        ))}
-      </div> */}
+    <div className="max-w-full my-4 mx-auto bg-cardBg border-l-8 border-primary overflow-hidden md:flex">
+      <div className="p-8 md:flex-1">
+        <div className='text-white text-xl'>{portfolioItem.title} </div>
+        <p className="text-white py-2 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+        <div className='flex flex-row justify-between mt-6'>
+          <div className='pt-4'>
+            <Button model={{link: "#", type:ComponentType.Primary, text: "View Project"}} />
+            <Button model={{link: "#", type:ComponentType.Secondary, text: "Visit Github"}} />
+          </div>
+
+          <div className="pt-4 pb-2">
+            {portfolioItem.tags.map((tag) => (
+              <Tag key={tag} text={tag} />
+            ))}
+          </div>
+
+        </div>
+
+      </div>
+      <div className="md:flex-shrink-0">
+        <img
+          className="h-48 w-full object-cover md:h-full md:w-48"
+          src="lars.png"
+          alt="Card Image"
+        />
+      </div>
     </div>
   );
 };

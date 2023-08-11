@@ -1,17 +1,67 @@
 import Head from 'next/head'
 import Hero from '@/components/molecules/hero/Hero'
-import { getPosts } from '@/services/PostService'
-import Post from '@/Models/PostModel'
-import { getPortfolioItems } from '@/services/PortfolioItemService'
 import PortfolioItem from '@/Models/PortfolioItemModel'
-import Title from '@/components/atoms/Title'
 import CardList from '@/components/molecules/cardlist/CardList'
-import { CardType } from '@/Enums/cardType'
+import Experience from '@/components/molecules/components/Experience'
+import SkillsList from '@/components/molecules/components/skills/SkillsList'
+import About from '@/components/molecules/about/About'
+import Contact from '@/components/molecules/contact/Contact'
+
 
 const personalImage = "/lars.png"
 const bgimage = 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+const experiences = [
+  {
+    title: 'Software Engineer',
+    company: 'ABC Inc.',
+    date: '2018 - Present',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
+  },
+  {
+    title: 'Intern',
+    company: 'XYZ Corp.',
+    date: '2017 - 2018',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
+  }
+];
 
-const Home:React.FC<{posts: Post[], portfolioItems: PortfolioItem[]}> = ({posts, portfolioItems}) => {
+const educations = [
+  {
+    degree: 'Bachelor of Science',
+    institution: 'University of ABC',
+    date: '2013 - 2017',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
+  },
+  {
+    degree: 'High School Diploma',
+    institution: 'XYZ High School',
+    date: '2009 - 2013',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
+  }
+];
+
+
+const Home:React.FC = () => {
+  const portfolioItems:PortfolioItem[] = [{
+    title: 'Portfolio Item 1',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscin ',
+    headerImage: 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8f',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
+    date: "2021-04-01",
+    category: "web",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nis",
+  },
+  {
+    title: 'Portfolio Item 2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscin ',
+    headerImage: 'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8f',
+    tags: ['React', 'NextJS', 'TailwindCSS'],
+    date: "2021-04-01",
+    category: "web",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nis",
+  },
+    ]
+
   return (
     <>
       <Head>
@@ -20,26 +70,16 @@ const Home:React.FC<{posts: Post[], portfolioItems: PortfolioItem[]}> = ({posts,
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className='pb-20'>
         <Hero title='Lars Assen' backgroundImageUrl={bgimage} imageUrl={personalImage} text='And I design and build stuff for the web' buttonText='follow me' onClick={() => {}} />
-        <Title text='Latest blog posts' />
-        <CardList items={posts} type={CardType.Post} />
-        <Title text='Latest Portfolio items' />
-        <CardList items={portfolioItems} type={CardType.PortfolioItem} />
+        <CardList portfolioItems={portfolioItems}  />
+        <SkillsList />
+        <Experience experiences={experiences} educations={educations} />
+        <About />
+        <Contact />
       </main>
     </>
   )
-}
-
-export async function getStaticProps() {
-  const posts = await getPosts();
-  const portfolioItems = await getPortfolioItems();
-  return {
-    props: {
-      posts: posts,
-      portfolioItems: portfolioItems
-    },
-  };
 }
 
 export default Home
