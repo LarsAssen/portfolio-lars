@@ -29,8 +29,8 @@ const Roadmap: React.FC<Props> = ({ experiences, educations }) => {
         {experiences.map((experience, index) => (
           <div key={index} className="my-4 mx-auto bg-cardBg border-l-8 border-primary">
           <div className="p-8">
-            <p>{experience.date}</p>
-            <Title number='' size='small' text={experience.title} />
+            <p className='text-primary'>{experience.date}</p>
+            <div className='text-white text-xl'>{experience.title}</div>
             <p className="text-white py-2 text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>
@@ -49,8 +49,8 @@ const Roadmap: React.FC<Props> = ({ experiences, educations }) => {
         {educations.map((education, index) => (
           <div key={index} className="max-w-full my-4 mx-auto bg-cardBg border-l-8 border-primary overflow-hidden md:flex">
           <div className="p-8 md:flex-1">
-            <p>{education.date}</p>
-            <Title number='' size='small' text={education.degree} />
+            <p className='text-primary' >{education.date}</p>
+            <div className='text-white text-xl'>{education.degree}</div>
             <p className="text-white py-2 text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>

@@ -78,15 +78,6 @@ const Contact = () => {
       
       
       <form onSubmit={handleSubmit}>
-        {/* <div className="mb-4">
-          <label htmlFor="full-name">Full Name:</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="email">Email:</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
-        </div> */}
-
         <div className="flex mx-10 space-x-4 mb-4">
           <div className={`relative  flex-1`}>
             <label

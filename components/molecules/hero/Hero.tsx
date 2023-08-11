@@ -92,8 +92,10 @@ const Hero: React.FC<Props> = ({
           ))}
         </motion.div>
         </div>
-        <Button model={{link: "/", type: ComponentType.Primary, text: "Portfolio"}} />
-        <Button model={{link: "/", type: ComponentType.Secondary, text: "Contact"}} />
+        <div className='flex flex-row'>
+        <Button model={{link: "#portfolioItems", type: ComponentType.Primary, text: "Portfolio"}} />
+        <Button model={{link: "#contact", type: ComponentType.Secondary, text: "Contact"}} />
+        </div>
       </div>
         <div className='flex relative ml-auto flex-col justify-center'>
         <div className="absolute top-4 left-4 w-full h-full border-solid border-4 border-primary"></div>

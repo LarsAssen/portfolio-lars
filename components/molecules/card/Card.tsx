@@ -1,4 +1,6 @@
+import { ComponentType } from '@/Enums/componentType';
 import PortfolioItem from '@/Models/PortfolioItemModel';
+import Button from '@/components/atoms/Button';
 import Category from '@/components/atoms/Category';
 import Tag from '@/components/atoms/Tag';
 import Title from '@/components/atoms/Title';
@@ -9,16 +11,24 @@ const Card: React.FC<{portfolioItem: PortfolioItem, index:any}> = ({ portfolioIt
   return (
     <div className="max-w-full my-4 mx-auto bg-cardBg border-l-8 border-primary overflow-hidden md:flex">
       <div className="p-8 md:flex-1">
-        <Category text={portfolioItem.category}/>
-        <Title size='small' text={portfolioItem.title} />
+        <div className='text-white text-xl'>{portfolioItem.title} </div>
         <p className="text-white py-2 text-base">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
         </p>
-        <div className="pt-4 pb-2">
-          {portfolioItem.tags.map((tag) => (
-            <Tag key={tag} text={tag} />
-          ))}
+        <div className='flex flex-row justify-between mt-6'>
+          <div className='pt-4'>
+            <Button model={{link: "#", type:ComponentType.Primary, text: "View Project"}} />
+            <Button model={{link: "#", type:ComponentType.Secondary, text: "Visit Github"}} />
+          </div>
+
+          <div className="pt-4 pb-2">
+            {portfolioItem.tags.map((tag) => (
+              <Tag key={tag} text={tag} />
+            ))}
+          </div>
+
         </div>
+
       </div>
       <div className="md:flex-shrink-0">
         <img
