@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       service: 'Outlook',
       auth: {
         user: 'juniorassen@hotmail.com',
-        pass: 'Hallo999!',
+        pass: process.env.EMAIL_PASSWORD,
       },
     });
 

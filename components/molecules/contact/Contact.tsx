@@ -1,6 +1,4 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import emailjs from 'emailjs-com';
-import Title from '@/components/atoms/Title';
 
 const Contact = () => {
   
