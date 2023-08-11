@@ -1,9 +1,7 @@
 import { ComponentType } from '@/Enums/componentType';
 import PortfolioItem from '@/Models/PortfolioItemModel';
 import Button from '@/components/atoms/Button';
-import Category from '@/components/atoms/Category';
 import Tag from '@/components/atoms/Tag';
-import Title from '@/components/atoms/Title';
 import React from 'react';
 
 const Card: React.FC<{portfolioItem: PortfolioItem, index:any}> = ({ portfolioItem, index }) => {
