@@ -11,12 +11,12 @@ const Card: React.FC<{portfolioItem: PortfolioItem, index:any}> = ({ portfolioIt
       <div className="p-8 md:flex-1">
         <div className='text-white text-xl'>{portfolioItem.title} </div>
         <p className="text-white py-2 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+          {portfolioItem.description}
         </p>
         <div className='flex flex-row justify-between mt-6'>
           <div className='pt-4'>
             <Button model={{link: "#", type:ComponentType.Primary, text: "View Project"}} />
-            <Button model={{link: "#", type:ComponentType.Secondary, text: "Visit Github"}} />
+            <Button model={{link: portfolioItem.link, type:ComponentType.Secondary, text: "Visit Github"}} />
           </div>
 
           <div className="pt-4 pb-2">
@@ -31,7 +31,7 @@ const Card: React.FC<{portfolioItem: PortfolioItem, index:any}> = ({ portfolioIt
       <div className="md:flex-shrink-0">
         <img
           className="h-48 w-full object-cover md:h-full md:w-48"
-          src="lars.png"
+          src={portfolioItem.headerImage}
           alt="Card Image"
         />
       </div>

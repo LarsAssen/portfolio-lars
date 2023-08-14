@@ -5,7 +5,7 @@ interface PortfolioItem{
     content: string,
     tags: string[],
     date: string,
-    category: string,
+    link: string
 }
 
 export default PortfolioItem;
