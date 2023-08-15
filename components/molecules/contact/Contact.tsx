@@ -45,29 +45,13 @@ const Contact = () => {
     setFullnameFocused(true);
   };
 
-  const handleInput1Blur = () => {
-    setFullnameFocused(false);
-  };
-
   const handleInput2Focus = () => {
     setEmailFocused(true);
-  };
-
-  const handleInput2Blur = () => {
-    setEmailFocused(false);
   };
 
   const handleTextareaFocus = () => {
     setTextareaFocused(true);
   };
-
-  const handleTextareaBlur = () => {
-    setTextareaFocused(false);
-  };
-
-
-  
-    
   
   return (
     <div id='contact' className="bg-cardBg mx-20 my-24">
@@ -79,8 +63,8 @@ const Contact = () => {
         <div className="flex mx-10 space-x-4 mb-4">
           <div className={`relative  flex-1`}>
             <label
-              className={`absolute left-2 transition-all duration-300 ${
-                fullnameFocused ? 'text-sm top-0 text-gray-500' : 'top-2'
+              className={`absolute left-2 transition-all text-white duration-300 ${
+                fullnameFocused ? 'text-sm -top-2' : 'top-2'
               }`}
             >
               Full Name
@@ -90,17 +74,14 @@ const Contact = () => {
               value={formData.name} 
               onChange={handleChange}
               type="text"
-              className={`w-full bg-[#3F4D5E] border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300 ${
-                fullnameFocused ? 'border-blue-500' : 'border-gray-300'
-              }`}
+              className={`w-full bg-[#3F4D5E] px-3 py-2 rounded focus:outline-none focus:ring`}
               onFocus={handleInput1Focus}
-              onBlur={handleInput1Blur}
             />
           </div>
           <div className={`relative flex-1`}>
             <label
-              className={`absolute left-2 transition-all duration-300 ${
-                emailFocused ? 'text-sm top-0 text-gray-500' : 'top-2'
+              className={`absolute left-2 text-white transition-all duration-300 ${
+                emailFocused ? 'text-sm -top-2' : 'top-2'
               }`}
             >
               Email
@@ -110,28 +91,22 @@ const Contact = () => {
               name="email" 
               value={formData.email} 
               onChange={handleChange}
-              className={`w-full border bg-[#3F4D5E] px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300 ${
-                emailFocused ? 'border-blue-500' : 'border-gray-300'
-              }`}
+              className={`w-full bg-[#3F4D5E] px-3 py-2 rounded focus:outline-none focus:ring`}
               onFocus={handleInput2Focus}
-              onBlur={handleInput2Blur}
             />
           </div>
         </div>
         <div className={`relative mx-10`}>
           <label
             className={`absolute text-white left-2 transition-all duration-300 ${
-              textareaFocused ? 'text-sm top-0 text-gray-500' : 'top-2'
+              textareaFocused ? 'text-sm -top-2' : 'top-2'
             }`}
           >
             Text Area
           </label>
           <textarea
-            className={`w-full bg-[#3F4D5E] px-3 py-2 rounded focus:outline-none ${
-              textareaFocused ? 'border-primary' : ''
-            }`}
+            className={`w-full bg-[#3F4D5E] px-3 py-2 rounded focus:outline-none`}
             onFocus={handleTextareaFocus}
-            onBlur={handleTextareaBlur}
             name="message" 
             value={formData.message} 
             onChange={handleChange}
@@ -141,7 +116,7 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="bg-blue-500 my-10  mx-10 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+          className="bg-primary my-10  mx-10 text-white font-bold py-2 px-4 rounded"
         >
           Send Message
         </button>

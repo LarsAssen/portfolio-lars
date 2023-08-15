@@ -15,8 +15,7 @@ const Card: React.FC<{portfolioItem: PortfolioItem, index:any}> = ({ portfolioIt
         </p>
         <div className='flex flex-row justify-between mt-6'>
           <div className='pt-4'>
-            <Button model={{link: "#", type:ComponentType.Primary, text: "View Project"}} />
-            <Button model={{link: portfolioItem.link, type:ComponentType.Secondary, text: "Visit Github"}} />
+            <a href={portfolioItem.link} className='bg-primary text-white py-2 mt-6 mr-2 px-6 rounded font-bold border-2 border-primary'  >View Github</a>
           </div>
 
           <div className="pt-4 pb-2">
