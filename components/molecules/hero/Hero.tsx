@@ -54,7 +54,7 @@ const Hero: React.FC<Props> = ({
 
   return (
     <div
-      className="h-screen relative justify-between bg-cover bg-center bg-opacity-10"
+      className="h-screen relativ bg-cover bg-center bg-opacity-10"
       id='hero'
     >
        
@@ -69,7 +69,7 @@ const Hero: React.FC<Props> = ({
         style={{ clipPath: 'polygon(100% 100%, 0 100%, 100% 0)' }}
       ></div>
 
-      <div className='top-52 mx-20 relative flex flex-row items-center '>
+      <div className='top-52 mx-20 relative flex flex-col lg:flex-row items-center '>
       <div className="flex flex-col justify-center mr-64 max-w-mds">
         <div ref={ref}>
         <motion.div
@@ -98,7 +98,7 @@ const Hero: React.FC<Props> = ({
         </div>
       </div>
         <div className='flex relative ml-auto flex-col justify-center'>
-        <div className="absolute top-4 left-4 w-full h-full border-solid border-4 border-primary"></div>
+        <div className="absolute lg:top-4 lg:left-4 w-full h-full border-solid border-4 border-primary"></div>
           <Image className='z-10' src={imageUrl} alt="Hero" width={500} height={500} />
           </div>
       </div>
