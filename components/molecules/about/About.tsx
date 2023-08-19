@@ -8,7 +8,7 @@ const About = () => {
     const personalImage = "/lars.png"
   return (
     <div className='h-screen' id='about' >
-      <div className='mx-20 top-52 relative flex flex-row items-center '>
+      <div className='lg:mx-20 mx-4 top-52 relative flex flex-col lg:flex-row items-center '>
         <div>
         <Title number='5.  ' text="About me" />
         <p className='my-2 text-white'>Hi there, my name is Lars and

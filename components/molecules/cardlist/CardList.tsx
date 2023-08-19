@@ -8,7 +8,7 @@ const CardList:React.FC<{portfolioItems : PortfolioItem[]}> = ({portfolioItems})
 
   
   return(
-    <div  id='portfolioItems' className="mx-20 mt-24 ">
+    <div  id='portfolioItems' className="lg:mx-20 mx-4 mt-24 ">
       <Title number='1.  ' text='Latest Portfolio items' />
       {portfolioItems.map((item, index) => (
          <Card index={index} {...item} key={item.title} portfolioItem={item}  />

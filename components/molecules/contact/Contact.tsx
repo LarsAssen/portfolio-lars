@@ -54,14 +54,14 @@ const Contact = () => {
   };
   
   return (
-    <div id='contact' className="bg-cardBg mx-20 my-24">
+    <div id='contact' className="bg-cardBg lg:mx-20 mx-4 my-24">
       <h2 className="text-2xl pt-10 ml-10 font-light text-white mb-1">Like what you see?</h2>
       <h2 className="text-2xl ml-10 font-light text-primary mb-4">Lets talk!</h2>
       
       
       <form onSubmit={handleSubmit}>
-        <div className="flex mx-10 space-x-4 mb-4">
-          <div className={`relative  flex-1`}>
+        <div className="flex flex-col lg:flex-row mx-10 space-x-4 mb-4">
+          <div className={`relative lg:flex-1`}>
             <label
               className={`absolute left-2 transition-all text-white duration-300 ${
                 fullnameFocused ? 'text-sm -top-2' : 'top-2'
@@ -78,7 +78,7 @@ const Contact = () => {
               onFocus={handleInput1Focus}
             />
           </div>
-          <div className={`relative flex-1`}>
+          <div className={`relative mt-4 lg:flex-1`}>
             <label
               className={`absolute left-2 text-white transition-all duration-300 ${
                 emailFocused ? 'text-sm -top-2' : 'top-2'

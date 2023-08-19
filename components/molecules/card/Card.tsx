@@ -13,12 +13,12 @@ const Card: React.FC<{portfolioItem: PortfolioItem, index:any}> = ({ portfolioIt
         <p className="text-white py-2 text-base">
           {portfolioItem.description}
         </p>
-        <div className='flex flex-row justify-between mt-6'>
-          <div className='pt-4'>
-            <a href={portfolioItem.link} className='bg-primary text-white py-2 mt-6 mr-2 px-6 rounded font-bold border-2 border-primary'  >View Github</a>
+        <div className='flex flex-col lg:flex-row justify-between mt-6'>
+          <div className='lg:pt-4'>
+            <a href={portfolioItem.link} className='bg-primary text-white py-2 mt-6 mr-2 px-6 rounded font-bold border-2 border-primary'  >Github</a>
           </div>
 
-          <div className="pt-4 pb-2">
+          <div className="lg:pt-4 mt-5 pb-2">
             {portfolioItem.tags.map((tag) => (
               <Tag key={tag} text={tag} />
             ))}

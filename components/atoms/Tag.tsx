@@ -11,7 +11,7 @@ const Tag: React.FC<TagProps> = ({ text, variant = 'primary' }) => {
 
   return (
     <div
-      className={`inline-flex font-bold items-center mr-3 px-3 py-1 rounded-full ${bgColor} text-white`}
+      className={`inline-flex font-bold items-center mr-3 px-3 py-1 mt-2 rounded-full ${bgColor} text-white`}
     >
       <FaTag className='mr-2' />
       <span>{text}</span>

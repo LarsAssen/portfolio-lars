@@ -22,7 +22,7 @@ const Skills:React.FC<{iconName: string, title: string, description: string}> = 
       iconElement = null; // Render no icon if the prop value doesn't match
   }
     return (
-      <div className="bg-cardBg relative w-80 h-80">
+      <div className="bg-cardBg mb-5 relative w-80 h-80">
         <div className="absolute flex items-center justify-center left-4 z-10 -top-5 rounded-full bg-cardBg border-[6px] border-bgColor p-2 w-16 h-16">
           {iconElement}
         </div>

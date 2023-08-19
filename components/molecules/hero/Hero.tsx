@@ -44,8 +44,8 @@ const Hero: React.FC<Props> = ({
 
   const lines = [
     { text: 'Hi I\'m', style: 'text-primary' },
-    { text: 'Lars Assen', style: 'text-6xl text-primary opacity-50 font-bold mb-4' },
-    { text: 'A Full stack developer and designer', style: 'text-6xl text-white font-medium mb-4' },
+    { text: 'Lars Assen', style: 'lg:text-6xl text-2xl text-primary opacity-50 font-bold mb-4' },
+    { text: 'A Full stack developer and designer', style: 'lg:text-6xl text-2xl text-white font-medium mb-4' },
     { text: 'I’m a fullstack web developer who specializes', style: 'text-white' },
     { text: 'in modern technologies to build beautiful, fast', style: 'text-white' },
     { text: 'and responsive web solutions.', style: 'text-white' },
@@ -54,7 +54,7 @@ const Hero: React.FC<Props> = ({
 
   return (
     <div
-      className="h-screen relativ bg-cover bg-center bg-opacity-10"
+      className="h-screen relative bg-cover bg-center bg-opacity-10"
       id='hero'
     >
        
@@ -69,8 +69,8 @@ const Hero: React.FC<Props> = ({
         style={{ clipPath: 'polygon(100% 100%, 0 100%, 100% 0)' }}
       ></div>
 
-      <div className='top-52 mx-20 relative flex flex-col lg:flex-row items-center '>
-      <div className="flex flex-col justify-center mr-64 max-w-mds">
+      <div className='lg:top-52 top-20 mx-20 relative flex flex-col lg:flex-row items-center '>
+      <div className="flex flex-col justify-center lg:mr-64 lg:max-w-mds">
         <div ref={ref}>
         <motion.div
           initial="hidden"
@@ -99,7 +99,7 @@ const Hero: React.FC<Props> = ({
       </div>
         <div className='flex relative ml-auto flex-col justify-center'>
         <div className="absolute lg:top-4 lg:left-4 w-full h-full border-solid border-4 border-primary"></div>
-          <Image className='z-10' src={imageUrl} alt="Hero" width={500} height={500} />
+          <Image className='z-10 mt-4' src={imageUrl} alt="Hero" width={500} height={500} />
           </div>
       </div>
     </div>

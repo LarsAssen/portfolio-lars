@@ -23,7 +23,7 @@ interface Props {
 
 const Roadmap: React.FC<Props> = ({ experiences, educations }) => {
   return (
-    <div id='experience' className="mx-20 mt-20 pt-20">
+    <div id='experience' className="lg:mx-20 mx-4 mt-20 pt-20">
       <Title number='3.  ' text='Work Experience'/>
       <ul className="mb-8">
         {experiences.map((experience, index) => (
